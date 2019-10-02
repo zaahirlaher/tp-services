@@ -49,13 +49,11 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
     configurer
             .inMemory()
             .withClient(clientId)
-            .secret("{noop}"+clientSecret)
+            .secret("{noop}" + clientSecret)
             .authorizedGrantTypes(grantType)
             .scopes(scopeRead, scopeWrite)
             .resourceIds(resourceIds);
   }
-
-
 
   @Override
   public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {

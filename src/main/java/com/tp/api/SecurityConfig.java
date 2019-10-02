@@ -42,10 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
     auth.inMemoryAuthentication()
-            .withUser("teacher").password(encoder.encode("teacher")).roles("USER");
+            .withUser("teacher@w.com").password(encoder.encode("teacher")).roles("USER");
   }
-
-
 
   @Override
   protected void configure(HttpSecurity http) throws Exception {
