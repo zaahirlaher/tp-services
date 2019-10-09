@@ -1,10 +1,12 @@
 package com.tp.api.repository;
 
-import com.tp.api.entities.FormClass;
+import com.tp.api.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface FormClassRepository extends JpaRepository<FormClass, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
+
+  public User findByUsername(String username);
 
 }

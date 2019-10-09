@@ -6,6 +6,9 @@
     <class>com.tp.api.entities.FormClass</class>
     <class>com.tp.api.entities.ParentLearnerLink</class>
     <class>com.tp.api.entities.Parent</class>
+    <class>com.tp.api.entities.Role</class>
+    <class>com.tp.api.entities.User</class>
+    <class>com.tp.api.entities.FormClassTeacherLink</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tp"/>
       <property name="javax.persistence.jdbc.user" value="tpAdmin"/>

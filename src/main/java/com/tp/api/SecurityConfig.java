@@ -1,5 +1,7 @@
 package com.tp.api;
 
+import com.tp.api.service.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,17 +34,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   @Value("${security.security-realm}")
   private String securityRealm;
 
+  @Autowired
+  private UserDetailsServiceImpl userDetailsService;
+
   @Bean
   @Override
   protected AuthenticationManager authenticationManager() throws Exception {
     return super.authenticationManager();
   }
 
+//  @Override
+//  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//    PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+//    auth.inMemoryAuthentication()
+//            .withUser("teacher@w.com").password(encoder.encode("teacher")).roles("USER");
+//  }
+  
+  
   @Override
   protected void configure(AuthenticationManagerBuilder auth) throws Exception {
     PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-    auth.inMemoryAuthentication()
-            .withUser("teacher@w.com").password(encoder.encode("teacher")).roles("USER");
+    System.out.println(encoder.encode("123"));
+    auth.userDetailsService(userDetailsService)
+            .passwordEncoder(encoder);
   }
 
   @Override

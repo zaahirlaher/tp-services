@@ -12,5 +12,5 @@ public class FormClassDao {
     private int year;
     private List<Learner> learnerList;
     private boolean isCurrent;
-
+    private String teacherUsername;
 }
